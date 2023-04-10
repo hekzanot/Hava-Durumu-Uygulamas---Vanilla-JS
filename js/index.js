@@ -89,9 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
       navigator.permissions.query({ name: 'geolocation' }).then((result) => {
         if (result.state === 'granted') {
           getCurrentPosition();
+          topText.style.display = 'none';
         } else if (result.state === 'prompt') {
           navigator.geolocation.getCurrentPosition(() => {
             getCurrentPosition();
+            topText.style.display = 'none';
           });
         } else {
           alert('Konum paylaşımı engellendi, lütfen tarayıcınızın konum iznini açınız.');
@@ -100,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       alert('Tarayıcınız konum paylaşmayı desteklemiyor.');
     }
-    topText.style.display = 'none';
+
   }
   
   function getCurrentPosition() {
