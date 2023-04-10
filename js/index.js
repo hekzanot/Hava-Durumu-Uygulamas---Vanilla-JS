@@ -7,6 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const weatherDetails = document.querySelector('.weather-details');
   const error404 = document.querySelector('.not-found');
   const locationButton = document.getElementById('location-button');
+  const topText = document.querySelector('.top-text');
+
+
+
 
   function searchWeather() {
     const city = cityInput.value;
@@ -66,8 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     weatherBox.classList.add('fadeIn');
     weatherDetails.classList.add('fadeIn');
     container.style.height = '590px';
-
-
+    topText.style.display = 'none';
     });
   }
 
@@ -97,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       alert('Tarayıcınız konum paylaşmayı desteklemiyor.');
     }
+    topText.style.display = 'none';
   }
   
   function getCurrentPosition() {
@@ -141,10 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
           case 'Snow':
             image.src = 'img/snow.png';
             break;
-          case 'Cloud':
+          case 'Clouds':
             image.src = 'img/cloud.png';
             break;
-          case 'Mist':
+          case 'Haze':
             image.src = 'img/mist.png';
             break;
           default:
